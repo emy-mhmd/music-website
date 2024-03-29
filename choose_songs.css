@@ -1,0 +1,66 @@
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure the body takes up the full viewport height */
+}
+.faded-background {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(to right bottom ,
+    rgb(80, 9, 180), 
+    rgba(0, 0, 0, 1) , 
+    rgba(0, 0, 0, 1) , 
+    rgba(0, 0, 0, 1) , 
+    rgb(10, 10, 174) );
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+#bodyhead{
+    color:white;
+    text-align: center;
+    font-size: 40px;
+}
+#para1{
+    color:white;
+    text-align: center;
+}
+.para{
+    color:white;
+    text-align: center;
+    font-size: 30px;
+}
+
+.genre-button {
+    background-color: #8C33FF; /* Adjust to your desired purple color */
+    color: white;
+    padding: 6px; /* Adjust padding as needed */
+    border: none; /* Remove default button border */
+    border-radius: 10px; /* Add rounded corners */
+    cursor: pointer; /* Indicate clickable behavior */
+    font-weight: bold; /* Make text bold (optional) */
+    display: inline-block; /* Allow for inline positioning */
+    margin:5px;
+    font-size:18px;
+  }
+
+#genre-container,#artist-container,#language-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding:5px 30px;
+}
+
+#start{
+    background-color: #ffffff;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin:50px;
+    font-size:22px;
+    float:right;
+}

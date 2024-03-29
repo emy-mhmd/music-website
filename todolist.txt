@@ -1,0 +1,30 @@
+in the playlist html when loading songs into the music list use the following function
+
+const songs = [
+  { number: "01", image: "kororon.png", title: "Kororon", artist: "Eve", id: 1 },
+  { number: "02", image: "song2.jpg", title: "Another Song", artist: "Different Artist", id: 2 },
+  // Add more song objects as needed
+];
+
+
+const songList = document.querySelector(".song_list"); // Assuming your song list has a class "song_list"
+
+for (const song of songs) {
+  const songItem = document.createElement("li");
+  songItem.classList.add("song_item");
+
+  songItem.innerHTML = `
+    <span>${song.number}</span>
+    <img src="${song.image}" alt="${song.title} - ${song.artist}">
+    <h5>${song.title}
+      <div class="subtitle">${song.artist}</div>
+    </h5>
+    <i class="bi playListPlay bi-play-circle-fill" id="${song.id}"></i>
+  `;
+
+  songList.appendChild(songItem);
+}
+
+***************************************************************
+make the menu-side's hight a %
+***************************************************************
