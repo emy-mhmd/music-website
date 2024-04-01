@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <title>artist page</title>
+    <link rel="stylesheet" href="artist.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>   
+<body>
+    <div class="container">
+        <div class="artist-image">
+            <div class="music-logo">
+                <img src="Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+            </div>
+            <div class="image-wrapper">
+                <img id="artist-image" src="billie_eilish.jpg" alt="artist image">
+                <h2>Billie Eilish</h2>  
+            </div>
+
+        </div>
+        <div class="artist">
+            <!-- Links for toggling between songs and albums -->
+            <div class="links">
+                <a href="#" onclick="showSongs()">Songs</a> / 
+                <a href="#" onclick="showAlbums()">Albums</a>
+            
+            <!-- Songs List -->
+            <div class="songs" id="songs">
+                <ul>
+                    <li class="song_item">
+                        <span>01</span>
+                        <img src="kororon.png" alt="kororon-eve">
+                        <h5>Kororon
+                            <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
+                        </h5>
+                    </li>
+                    <li class="song_item">
+                        <span>02</span>
+                        <img src="avant.png" alt="Avant-eve">
+                        <h5>Avant
+                            <i class="bi playListPlay bi-play-circle-fill" id="2"></i>
+                        </h5>
+                    </li>
+                    <li class="song_item">
+                        <span>03</span>
+                        <img src="fight_song.png" alt="Fight-song-eve">
+                        <h5>Fight Song
+                            <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            <!-- Albums List -->
+        <div class="albums" id="albums" style="display: none;">
+                <ul>
+                    <li class="song_item">
+                        <span>03</span>
+                        <img src="fight_song.png" alt="Fight-song-eve">
+                        <h5>Fight Song
+                            <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
+                        </h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript functions to toggle between songs and albums
+        var songsSection = document.getElementById("songs");
+        var albumsSection = document.getElementById("albums");
+
+        function showSongs() {
+            songsSection.style.display = "block";
+            albumsSection.style.display = "none";
+        }
+
+        function showAlbums() {
+            songsSection.style.display = "none";
+            albumsSection.style.display = "block";
+        }
+    </script>    
+</body>
+</html>
