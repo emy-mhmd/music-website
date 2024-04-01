@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Change font-family */
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Outer wallpaper color */
+        }
+        .container {
+            max-width: 1000px; /* Adjusted max-width */
+            margin: 20px auto;
+            padding: 20px;
+            background-image: url('https://images.wallpapersden.com/image/download/topography-abstract-black-texture_a2lmZmiUmZqaraWkpJRmaGhrrWxrbQ.jpg');
+            background-size: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #343a40; /* Dark grey */
+            border-radius: 4px;
+            border: 2px solid black; /* Black border */
+        }
+        .search-bar input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #272c30; /* Darker grey */
+            color: #ccc; /* Light grey text */
+        }
+        .search-bar button {
+            padding: 10px 15px; /* Adjusted padding */
+            margin-left: 5px; /* Added margin */
+            background-color: #444; /* Darker button color */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: black;
+        }
+        .categories {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .category-name {
+            font-size: 20px; /* Increased font size */
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ccc; /* Light grey text */
+        }
+        .category-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .category {
+            width: 150px;
+            height: 150px;
+            color: #fff;
+            text-align: center;
+            line-height: 150px;
+            border-radius: 8px;
+            margin: 5px; /* Adjusted margin for even spacing */
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .category:nth-child(1) { background-color: #dc3545; }
+        .category:nth-child(2) { background-color: #007bff; }
+        .category:nth-child(3) { background-color: #28a745; }
+        .category:nth-child(4) { background-color: #ffc107; }
+        .category:nth-child(5) { background-color: #17a2b8; }
+        .category:nth-child(6) { background-color: #6610f2; }
+        .category:nth-child(7) { background-color: #e83e8c; }
+        .category:nth-child(8) { background-color: #fd7e14; }
+        .category:nth-child(9) { background-color: #6f42c1; }
+        .category:nth-child(10) { background-color: #20c997; }
+        .category:nth-child(11) { background-color: #ffc107; }
+        .category:nth-child(12) { background-color: #fd7e14; }
+        .category:hover {
+            background-color: black;
+            color: white;
+        }
+        .trending-tracks {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .trending-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ccc; /* Light grey text */
+        }
+        .trending-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .track {
+            width: 150px;
+            height: 50px;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 8px;
+            margin: 5px; /* Adjusted margin for even spacing */
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .track:nth-child(1) { background-color: #dc3545; }
+        .track:nth-child(2) { background-color: #007bff; }
+        .track:nth-child(3) { background-color: #28a745; }
+        .track:nth-child(4) { background-color: #ffc107; }
+        .track:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="search-bar">
+        <input type="text" placeholder="Search for song, album, artist...">
+        <button type="button">Search</button>
+    </div>
+
+    <div class="categories">
+        <div class="category-name">Categories:</div>
+        <div class="category-container">
+            <div class="category">Pop</div>
+            <div class="category">Rock</div>
+            <div class="category">Hip Hop</div>
+            <div class="category">Jazz</div>
+            <div class="category">Arabic</div>
+            <div class="category">Latin</div>
+            <div class="category">Reggae</div>
+            <div class="category">Country</div>
+            <div class="category">Electronic</div>
+            <div class="category">Classical</div>
+            <div class="category">Blues</div>
+            <div class="category">Folk</div>
+        </div>
+    </div>
+
+    <div class="trending-tracks">
+        <div class="trending-name">Trending:</div>
+        <div class="trending-container">
+            <div class="track">Egypt</div>
+            <div class="track">Middle East</div>
+            <div class="track">Europe</div>
+            <div class="track">USA</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
