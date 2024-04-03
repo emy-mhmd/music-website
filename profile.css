@@ -1,0 +1,129 @@
+/* CSS for profile.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0b1320; /* Background color */
+    color: #ffffff; /* Text color */
+}
+
+nav {
+    background-color: #111727;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li:hover a {
+    color: #36e2ec; /* Hover text color */
+}
+
+nav ul li:hover {
+    background-color: #131313; /* Hover background color */
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111727;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+}
+
+.profile-photo {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-photo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.1);
+}
+
+.change-photo {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translate(50%, 50%);
+}
+
+.change-photo input[type="file"] {
+    display: none;
+}
+
+.change-photo label {
+    background-color: #36e2ec;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.password-change {
+    margin-top: 30px;
+}
+
+.password-form .form-group {
+    margin-bottom: 20px;
+}
+
+.password-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.password-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6e737e;
+    border-radius: 5px;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.btn {
+    background-color: #36e2ec;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #4c5262;
+}

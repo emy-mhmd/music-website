@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title>Profile Page</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Artists</a></li>
+            <li><a href="#">Albums</a></li>
+            <li><a href="#">Songs</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>Name:</strong> Sambo Nabil</p>
+            <p><strong>Email:</strong> yaboi@gmail.com</p>
+        </div>
+        <div class="profile-photo">
+            <img src="puck.png" alt="Profile Photo">
+            <div class="change-photo">
+                <input type="file" id="photoUpload" accept="image/*">
+                <label for="photoUpload">Change Photo</label>
+            </div>
+        </div>
+        <div class="password-change">
+            <h3>Change Password</h3>
+            <form class="password-form">
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="btn-container">
+                    <button type="submit" class="btn">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

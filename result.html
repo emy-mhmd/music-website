@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="result.css">
+    <title>Music Website</title>
+</head>
+<body>
+    <header>
+        <h1>Genre</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Artists</a></li>
+            <li><a href="#">Albums</a></li>
+            <li><a href="#">Songs</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="popular_artists">
+            <div class="h4">
+                <h2>Popular Artists</h2>
+                <div class="btn_s">
+                    <i id="left_scroll2" class="bi bi-arrow-left-circle-fill"></i>
+                    <i id="right_scroll2" class="bi bi-arrow-right-circle-fill"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="eve.png" alt="Eve">
+                    <p>Eve</p>
+                </div>
+                <div>
+                    <img src="eve.png" alt="Eve">
+                    <p>Eve</p>
+                </div>
+                <div>
+                    <img src="eve.png" alt="Eve">
+                    <p>Eve</p>
+                </div>
+                <!-- Add more duplicates of "Eve" here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="master_play">
+            <div class="wave">
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+            </div>
+            <img src="kororon.png" alt="kororon-eve">
+            <h5>Kororon <br>
+                <div class="subtitle">Eve</div>
+            </h5>
+            <div class="icon">
+                <i class="bi bi-skip-start-fill"></i>
+                <i class="bi bi-play-fill"></i>
+                <i class="bi bi-skip-end-fill"></i>
+            </div>
+            <span id="currentStart">0:00</span>
+            <div class="bar">
+                <input type="range" id="seek" min="0" value="0" max="0">
+                <div class="bar2" id="bar2"></div>
+                <div class="dot"></div>
+            </div>
+            <span id="currentEnd">0:00</span>
+            <div class="vol">
+                <i class="bi bi-volume-down-fill"></i>
+                <input type="range" id="vol" min="0" value="30" max="100">
+                <div class="vol_bar"></div>
+                <div class="dot" id="vol_dot"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

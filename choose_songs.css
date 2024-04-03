@@ -1,39 +1,51 @@
-html{
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    height: 100%; /* Ensure the body takes up the full viewport height */
+    background-color: #0b1320; /* Background color */
+    color: #ffffff; /* Text color */
 }
-.faded-background {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: linear-gradient(to right bottom ,
-    rgb(80, 9, 180), 
-    rgba(0, 0, 0, 1) , 
-    rgba(0, 0, 0, 1) , 
-    rgba(0, 0, 0, 1) , 
-    rgb(10, 10, 174) );
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 
-#bodyhead{
-    color:white;
+nav {
+    background-color: #111727;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background-color: #131313; /* Change background color of buttons on hover */
+}
+
+#bodyhead {
+    color: white;
     text-align: center;
     font-size: 40px;
 }
-#para1{
-    color:white;
-    text-align: center;
-}
-.para{
-    color:white;
+
+.para {
+    color: white;
     text-align: center;
     font-size: 30px;
 }
 
 .genre-button {
-    background-color: #8C33FF; /* Adjust to your desired purple color */
+    background-color: #4c5262; /* Adjust to your desired color */
     color: white;
     padding: 6px; /* Adjust padding as needed */
     border: none; /* Remove default button border */
@@ -41,26 +53,26 @@ html{
     cursor: pointer; /* Indicate clickable behavior */
     font-weight: bold; /* Make text bold (optional) */
     display: inline-block; /* Allow for inline positioning */
-    margin:5px;
-    font-size:18px;
-  }
+    margin: 5px;
+    font-size: 18px;
+}
 
-#genre-container,#artist-container,#language-container{
+#genre-container, #artist-container, #language-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding:5px 30px;
+    padding: 5px 30px;
 }
 
-#start{
+#start {
     background-color: #ffffff;
     padding: 6px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    margin:50px;
-    font-size:22px;
-    float:right;
+    margin: 50px;
+    font-size: 22px;
+    float: right;
 }
