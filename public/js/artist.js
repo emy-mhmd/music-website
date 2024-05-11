@@ -4,7 +4,8 @@
 // JavaScript functions to toggle between songs and albums
 var songsSection = document.getElementById("songs");
 var albumsSection = document.getElementById("albums");
-
+const urlParams = new URLSearchParams(window.location.search);
+const artistId = urlParams.get('id');
 function showSongs() {
     fetchTopTracks();
     songsSection.style.display = "block";
@@ -42,7 +43,7 @@ async function fetchAccessToken() {
 }
 
 async function fetchArtistData() {
-    const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
+    // const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
     const accessToken = await fetchAccessToken();
 
     const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}`, {
@@ -59,7 +60,7 @@ async function fetchArtistData() {
 }
 
 async function fetchTopTracks() {
-    const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
+    // const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
     const accessToken = await fetchAccessToken();
 
     const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}/top-tracks?country=US`, {
@@ -92,7 +93,7 @@ async function fetchTopTracks() {
 }
 
 async function fetchAlbums() {
-    const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
+    // const artistId = '6qqNVTkY8uBg9cP3Jd7DAH'; // Billie Eilish's Spotify ID
     const accessToken = await fetchAccessToken();
 
     const response = await fetch(`https://api.spotify.com/v1/artists/${artistId}/albums?include_groups=album&limit=10`, {
@@ -134,13 +135,16 @@ async function fetchAlbums() {
                 li.textContent = song.name;
                 li.style.fontSize = '22px';
                 li.style.paddingTop = '50px'; 
-                // if (song.album.images.length > 0) {
-                //     const img = document.createElement('img');
-                //     img.src = song.album.images[0].url;
-                //     img.alt = song.name;
-                //     img.style.width = '50px'; // Adjust image size as needed
-                //     li.appendChild(img);
-                // }
+                if (song.album && song.album.images && song.album.images.length > 0) {
+                    const img = document.createElement('img');
+                    img.src = song.album.images[0].url;
+                    img.alt = song.name;
+                    img.style.width = '50px'; 
+                    li.appendChild(img);
+                } else {
+                    console.log("No image found for song:", song.name);
+                }
+                
                 songsList.appendChild(li);
             });
                         

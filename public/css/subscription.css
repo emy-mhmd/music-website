@@ -26,13 +26,39 @@
     justify-content: center;
     flex-direction: column;
     color: #fff;
+    margin-top: 90px;
+
   }
   
 .logo {
     width:200px;  
     margin-bottom: 30px;  
   }
-  
+.music-menu ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    top: 30px;
+}
+
+.music-menu ul li {
+    list-style-type: none;
+}
+
+.music-menu ul li .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+.link:hover,
+.active {
+    border-bottom: 2px solid #fff;
+} 
 .col-2 {
    flex-basis: 50%;
    flex-grow: 1;

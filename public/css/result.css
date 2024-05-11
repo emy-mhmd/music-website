@@ -3,67 +3,59 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0b1320; /* Background color */
+    background-color:  #191919; /* Background color */
     color: #ffffff; /* Text color */
 }
 
 header {
-    background-color: #111727;
+    background-color: black;
     color: #ffffff;
-    padding: 20px;
+    padding: 60px;
     text-align: center;
+
+}   
+
+.music-logo img {
+    position: absolute;
+    width: 150px;
+    top: 10px;
+    left: 10px;
+}
+.music-menu ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    top: 30px;
 }
 
-nav ul {
+.music-menu ul li {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #ffffff;
+.music-menu ul li .link {
     text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+    padding-bottom: 15px;
+    margin: 0 25px;
 }
 
-nav ul li a:hover {
-    color: #36e2ec; /* Light blue on hover */
-}
-
-nav {
-    background-color: #121213;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-
-nav ul li a:hover {
-    background-color: #131313; /* Darker gray on hover */
+.link:hover,
+.active {
+    border-bottom: 2px solid #fff;
 }
 
 main {
     padding: 20px;
+    
 }
-
+main h1{
+    margin-bottom: 50px;
+    text-align: center;
+    
+}
 h2 {
     color: #ffffff;
 }
@@ -91,83 +83,27 @@ section {
     cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-footer {
-    background-color: #6e737e;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+.master_play{
+    width:100%;
+    height:10%;
+    background:#151414;
 
-/* Additional Styles for Popular Artists Section */
-.popular_artists {
-    margin-bottom: 30px;
 }
-
-.popular_artists .h4 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.popular_artists .btn_s {
-    font-size: 1.5rem;
-}
-
-.popular_artists .item {
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: left;
-}
-
-.popular_artists .item div {
-    display: inline-block;
-    margin-right: 20px;
-    text-align: center;
-}
-
-.popular_artists .item div p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #ffffff; /* Text color */
-}
-
-.popular_artists .item li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.popular_artists .item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-}
-
-.popular_artists .item img:hover {
-    transform: scale(1.1); /* Scale up on hover */
-}
-
-/* Music Player */
-.master_play {
+ .master_play{
     display: flex;
     align-items: center;
+    padding: 0px,20px;
     padding-left: 20px;
 }
-
-.master_play .wave {
+ .master_play .wave{
     width: 30px;
     height: 30px;
     display: flex;
-    align-items: flex-end;
+    align-items:flex-end ;
     padding-bottom: 5px;
-    margin-right: 10px;
+    margin-right:10px ;
 }
-
-.master_play .wave .wave1 {
+ .master_play .wave .wave1{
     width: 3px;
     height: 15px;
     margin-right: 3px;
@@ -175,127 +111,116 @@ footer {
     background: #36e2ec;
     animation: unset;
 }
-
-.master_play .wave .wave1:nth-child(2) {
+ .master_play .wave .wave1:nth-child(2){
     height: 20px;
+    /*animation-delay: .3s;*/
 }
-
-.master_play .wave .wave1:nth-child(3) {
+ .master_play .wave .wave1:nth-child(3){
     height: 8px;
+    /*animation-delay: .4s;*/
 }
 
-.master_play .active2 .wave1 {
+/* for java script*/
+ .master_play .active2 .wave1{
     animation: wave 1s linear infinite;
 }
-
-.master_play .active2 .wave1:nth-child(2) {
+ .master_play .active2 .wave1:nth-child(2){
     animation-delay: .3s;
 }
-
-.master_play .active2 .wave1:nth-child(3) {
+ .master_play .active2 .wave1:nth-child(3){
     animation-delay: .4s;
 }
 
 @keyframes wave {
-    0% {
+    0%{
         height: 15px;
     }
-    50% {
+    50%{
         height: 10px;
     }
-    100% {
+    100%{
         height: 15px;
     }
 }
 
-.master_play img {
+ .master_play img{
     width: 35px;
     height: 35px;
 }
-
-.master_play h5 {
+ .master_play h5{
     width: 130px;
     font-size: 13px;
     margin-left: 15px;
-    color: #ffffff;
+    color:#ffffff;
     line-height: 15px;
 }
-
-.master_play h5 .subtitle {
+ .master_play h5 .subtitle{
     font-size: 14px;
-    color: #4c5262; /* Text color */
+    color: #4c5262;
 }
-
-.master_play .icon {
+ .master_play .icon{
     font-size: 20px;
     color: #ffffff;
-    margin-right: 20px;
+    margin: 0px 20px 0px 0px;
 }
-
-.master_play .icon .bi {
+ .master_play .icon .bi{
     cursor: pointer;
     outline: none;
 }
-
-.master_play .icon .bi:nth-child(2) {
-    border: 1px solid rgb(105, 105, 170, .1);
+ .master_play .icon .bi:nth-child(2){
+    border: 1px solid rgb(105, 105, 170,.1);
     border-radius: 50%;
-    padding: 1px 3px 0px 6px;
+    padding: 1px,3px,0px,6px;
     margin: 0px 5px;
     transition: .3s linear;
 }
 
-.master_play span {
+ .master_play span{
     color: #ffffff;
     width: 32px;
     font-size: 11px;
     font-weight: 400;
 }
-
-.master_play #currentStart {
+ .master_play #currentStart{
     margin: 0px 0px 0px 20px;
 }
 
-.master_play .bar {
+ .master_play .bar{
     position: relative;
     width: 43%;
     height: 2px;
-    background-color: rgb(105, 105, 170, .1);
+    background-color: rgb(105, 105, 170,.1);
     margin: 0px 15px 0px 10px;
 }
-
-.master_play .bar .bar2 {
+ .master_play .bar .bar2{
     position: absolute;
     background: #36e2ec;
     width: 20%;
     height: 100%;
     top: 0;
 }
-
-.master_play .bar .dot {
+ .master_play .bar .dot{
     position: absolute;
     width: 5px;
     height: 5px;
     background: #36e2ec;
     border-radius: 50%;
     left: 0%;
-    top: -1px;
+    top:-1px;
     transition: 1s linear;
 }
-
-.master_play .bar .dot::before {
-    content: '';
+ .master_play .bar .dot::before{
+    content:'';
     position: absolute;
     width: 10px;
     height: 10px;
-    border: 1px solid #36e2ec;
+    border:1px solid #36e2ec;
     border-radius: 50%;
     left: -3px;
-    top: -4px;
+    top:-4px;
     box-shadow: inset 0px 0px 3px #36e2ec;
 }
-
-.master_play .bar input {
+ .master_play .bar input{
     position: absolute;
     width: 100%;
     top: -6px;
@@ -305,24 +230,21 @@ footer {
     transition: 3s linear;
     opacity: 0;
 }
-
-.master_play .vol {
+ .master_play .vol{
     position: relative;
     width: 100px;
     height: 2px;
     margin-left: 50px;
-    background: rgb(105, 105, 170, .1);
+    background: rgb(105, 105, 170,.1);
 }
-
-.master_play .vol .bi {
-    position: absolute;
+ .master_play .vol .bi{
+    position:absolute;
     color: #ffffff;
-    font-size: 25px;
+    font-size:25px ;
     top: -12px;
     left: -25px;
 }
-
-.master_play .vol input {
+ .master_play .vol input{
     position: absolute;
     width: 100%;
     top: -10px;
@@ -333,33 +255,224 @@ footer {
     opacity: 0;
 }
 
-.master_play .vol .vol_bar {
+ .master_play .vol .vol_bar{
     position: absolute;
     background: #36e2ec;
     width: 20%;
     height: 100%;
     top: 0;
 }
+ .master_play .vol .dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ffffff; .master_play{
+    display: flex;
+    align-items: center;
+    padding: 0px,20px;
+    padding-left: 20px;
+}
+ .master_play .wave{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items:flex-end ;
+    padding-bottom: 5px;
+    margin-right:10px ;
+}
+ .master_play .wave .wave1{
+    width: 3px;
+    height: 15px;
+    margin-right: 3px;
+    border-radius: 10px 10px 0px 0px;
+    background: #36e2ec;
+    animation: unset;
+}
+ .master_play .wave .wave1:nth-child(2){
+    height: 20px;
+    /*animation-delay: .3s;*/
+}
+ .master_play .wave .wave1:nth-child(3){
+    height: 8px;
+    /*animation-delay: .4s;*/
+}
 
-.master_play .vol .dot {
+/* for java script*/
+ .master_play .active2 .wave1{
+    animation: wave 1s linear infinite;
+}
+ .master_play .active2 .wave1:nth-child(2){
+    animation-delay: .3s;
+}
+ .master_play .active2 .wave1:nth-child(3){
+    animation-delay: .4s;
+}
+
+@keyframes wave {
+    0%{
+        height: 15px;
+    }
+    50%{
+        height: 10px;
+    }
+    100%{
+        height: 15px;
+    }
+}
+
+ .master_play img{
+    width: 35px;
+    height: 35px;
+}
+ .master_play h5{
+    width: 130px;
+    font-size: 13px;
+    margin-left: 15px;
+    color:#ffffff;
+    line-height: 15px;
+}
+ .master_play h5 .subtitle{
+    font-size: 14px;
+    color: #4c5262;
+}
+ .master_play .icon{
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0px 20px 0px 0px;
+}
+ .master_play .icon .bi{
+    cursor: pointer;
+    outline: none;
+}
+ .master_play .icon .bi:nth-child(2){
+    border: 1px solid rgb(105, 105, 170,.1);
+    border-radius: 50%;
+    padding: 1px,3px,0px,6px;
+    margin: 0px 5px;
+    transition: .3s linear;
+}
+
+ .master_play span{
+    color: #ffffff;
+    width: 32px;
+    font-size: 11px;
+    font-weight: 400;
+}
+ .master_play #currentStart{
+    margin: 0px 0px 0px 20px;
+}
+
+ .master_play .bar{
+    position: relative;
+    width: 43%;
+    height: 2px;
+    background-color: rgb(105, 105, 170,.1);
+    margin: 0px 15px 0px 10px;
+}
+ .master_play .bar .bar2{
+    position: absolute;
+    background: #36e2ec;
+    width: 20%;
+    height: 100%;
+    top: 0;
+}
+ .master_play .bar .dot{
     position: absolute;
     width: 5px;
     height: 5px;
     background: #36e2ec;
     border-radius: 50%;
     left: 0%;
-    top: -1px;
+    top:-1px;
     transition: 1s linear;
 }
-
-.master_play .vol .dot::before {
-    content: '';
+ .master_play .bar .dot::before{
+    content:'';
     position: absolute;
     width: 10px;
     height: 10px;
-    border: 1px solid #36e2ec;
+    border:1px solid #36e2ec;
     border-radius: 50%;
     left: -3px;
-    top: -4px;
+    top:-4px;
+    box-shadow: inset 0px 0px 3px #36e2ec;
+}
+ .master_play .bar input{
+    position: absolute;
+    width: 100%;
+    top: -6px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0;
+}
+ .master_play .vol{
+    position: relative;
+    width: 100px;
+    height: 2px;
+    margin-left: 50px;
+    background: rgb(105, 105, 170,.1);
+}
+ .master_play .vol .bi{
+    position:absolute;
+    color: #ffffff;
+    font-size:25px ;
+    top: -12px;
+    left: -25px;
+}
+ .master_play .vol input{
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0;
+}
+
+ .master_play .vol .vol_bar{
+    position: absolute;
+    background: #36e2ec;
+    width: 20%;
+    height: 100%;
+    top: 0;
+}
+ .master_play .vol .dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    left: 0%;
+    top:-1px;
+    transition: 1s linear;
+}
+ .master_play .vol .dot::before{
+    content:'';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border:1px solid #36e2ec;
+    border-radius: 50%;
+    left: -3px;
+    top:-4px;
+    box-shadow: inset 0px 0px 3px #36e2ec;
+}
+    border-radius: 50%;
+    left: 0%;
+    top:-1px;
+    transition: 1s linear;
+}
+g.master_play .vol .dot::before{
+    content:'';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border:1px solid #36e2ec;
+    border-radius: 50%;
+    left: -3px;
+    top:-4px;
     box-shadow: inset 0px 0px 3px #36e2ec;
 }

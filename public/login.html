@@ -125,11 +125,11 @@
     });
     document.getElementById("signin button").addEventListener("click", function(event) {
         event.preventDefault();
-        var Checked = document.getElementById("checkbox").checked;
+        
         var email = $("#email").val().trim();
         var password = $("#password").val().trim();
         
-        if (!Checked  ||email == "" || password == "") {
+        if (email == "" || password == "") {
             // If any field is empty, display an alert
             alert("Please fill out all the fields");
         }
