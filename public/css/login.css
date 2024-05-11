@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #0b1320;
+    background-color: black;
     overflow: hidden;
 }
 
@@ -16,7 +16,7 @@ body {
     align-items: center;
     min-height: 110vh;
     background-color: rgba(39, 39, 39, 0.4); /* fallback */
-    background-color: #111727;
+    background-color: black;
 }
 
 .music {
@@ -185,10 +185,7 @@ header {
     margin-top: 10px;
 }
 
-.two-col .one {
-    display: flex;
-    gap: 5px;
-}
+
 
 .two label a {
     text-decoration: none;

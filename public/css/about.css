@@ -10,6 +10,15 @@
     background-color: black;
     
 }
+
+
+.music-logo img {
+    position: absolute;
+    width: 150px;
+    top: 10px;
+    left: 10px;
+}
+
 .about img{
     height: auto;
     width: 420px;

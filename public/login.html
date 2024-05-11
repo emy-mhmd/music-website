@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0">
     <title>Music Website|Login and Registration</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="..\public\css\login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>   
 <body>
@@ -15,14 +15,13 @@
     <div class="wrapper">
         <nav class="music">
             <div class="music-logo">
-            <img src="Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+            <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
             </div>
             <div class="music-menu" id="musicMenu">
                 <ul>
                     <li><a href="#" class="link active"> Home</a></li>
-                    <li><a href="#" class="link"> Blog</a></li>
                     <li><a href="subscription.html" class="link"> Subscribe</a></li>
-                    <li><a href="#" class="link"> About</a></li>
+                    <li><a href="about.html" class="link"> About</a></li>
                 </ul>
             </div>
             
@@ -38,23 +37,23 @@
             <header>Login</header>
         </div>
         <div class="input-box">
-            <input type="text" class="input-field" placeholder="Username or Email">
+            <input id='email'type="text" class="input-field" placeholder="Username or Email">
             <i class="bx bx-user"></i>
         </div>
         <div class="input-box">
-            <input type="password" class="input-field" placeholder="Password">
+            <input id="password" type="password" class="input-field" placeholder="Password">
             <i class="bx bx-lock-alt"></i>
         </div>
         <div class="input-box">
-            <input type="submit" class="submit" value="Sign In">
+            <input id ="signin button" type="submit" class="submit" value="Sign In">
         </div>
         <div class="two-col">
             <div class="one">
-                <input type="checkbox" id="login-check">
+                <input id="checkbox" type="checkbox" id="login-check">
                 <label for="login-check"> Remember Me</label>
             </div>
             <div class="two">
-                <label><a href="#">Forgot password?</a></label>
+                <label><a href="profile.html">Forgot password?</a></label>
             </div>
         </div>
     </div>
@@ -66,30 +65,26 @@
             </div>
             <div class="two-forms">
                 <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Firstname">
+                    <input id="firstname" type="text" class="input-field" placeholder="Firstname">
                     <i class="bx bx-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" class="input-field" placeholder="Lastname">
+                    <input id='Lastname' type="text" class="input-field" placeholder="Lastname">
                     <i class="bx bx-user"></i>
                 </div>
             </div>
             <div class="input-box">
-                <input type="text" class="input-field" placeholder="Email">
+                <input id='emaill' type="text" class="input-field" placeholder="Email">
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
-                <input type="password" class="input-field" placeholder="Password">
+                <input id='passwordd' type="password" class="input-field" placeholder="Password">
                 <i class="bx bx-lock-alt"></i>
             </div>
             <div class="input-box">
-                <input type="submit" class="submit" value="Register">
+                <input id="registerButton" type="submit" class="submit" value="Register">
             </div>
             <div class="two-col">
-                <div class="one">
-                    <input type="checkbox" id="register-check">
-                    <label for="register-check"> Remember Me</label>
-                </div>
                 <div class="two">
                     <label><a href="#">Terms & conditions</a></label>
                 </div>
@@ -97,7 +92,7 @@
         </div>
     </div>
 </div>   
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     var x=document.getElementById("login")
     var y=document.getElementById("register")
@@ -113,6 +108,36 @@
         x.style.opacity=0;
         y.style.opacity=1;
     }
+    document.getElementById("registerButton").addEventListener("click", function(event) {
+        event.preventDefault();
+        var firstn = $("#firstname").val().trim();
+        var Lastn = $("#Lastname").val().trim();
+        var email = $("#emaill").val().trim();
+        var password = $("#passwordd").val().trim();
+        
+        if (firstn === "" || Lastn === "" ||email == "" || password == "") {
+            // If any field is empty, display an alert
+            alert("Please fill out all the fields");
+        }
+         else {
+        window.location.href = "choose_songs.html";
+        }
+    });
+    document.getElementById("signin button").addEventListener("click", function(event) {
+        event.preventDefault();
+        var Checked = document.getElementById("checkbox").checked;
+        var email = $("#email").val().trim();
+        var password = $("#password").val().trim();
+        
+        if (!Checked  ||email == "" || password == "") {
+            // If any field is empty, display an alert
+            alert("Please fill out all the fields");
+        }
+         else {
+        window.location.href = "playlist.html";
+         }
+    });
+    
 </script>
 </body>
 </html>       

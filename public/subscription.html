@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0">
+    <title>subscription page</title>
+    <link rel="stylesheet" href="..\public\css\subscription.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>   
+<body>
+    <div class="container">
+        <div class="col-1">
+            <img src="..\public\images\Screenshot 2024-03-26 035702.png"  class="logo" >
+            <ul>
+                <li><img src="..\public\images\Neon Star.jpg"> to Exclusive Content.</li>
+                <li><img src="..\public\images\Neon Star.jpg"> Offline Listening.</li>
+                <li><img src="..\public\images\Neon Star.jpg"> Early Access to Tickets.</li>
+                <li><img src="..\public\images\Neon Star.jpg"> Concert Replays.</li>
+                <li><img src="..\public\images\Neon Star.jpg"> Online Concert .</li>
+               
+            </ul>
+            
+        </div>
+        <div class="col-2">
+            <h2><img src="..\public\images\star-regular-24.png"> Our Plans</h2>
+            <form>
+                <label for="yearly">
+                    <input type="radio" name="Plans" id="year">
+                    <span>$20<small>/Year</small></span> No LIMITS
+                </label>
+                <label for="Monthly">
+                    <input type="radio" name="Plans" id="paid">
+                    <span>$15<small>/Month</small></span> No LIMITS
+                </label>
+                <br>
+                <p> YOUR NAME</p>
+                <input id="nameInput" type="text" placeholder="Enter Your Name" required>
+                <p>EMAIL ADDRESS</p>   
+                <input id="emailInput" type="email" placeholder="Enter Your Email Id" required>
+                <button id="subscribeButton" type="button">subscribe</button>
+            </form>
+        </div>
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#subscribeButton").on("click", function(){
+            event.preventDefault();
+        
+        // Check if the name and email fields are not empty
+        var nameInput = $("#nameInput").val().trim();
+        var emailInput = $("#emailInput").val().trim();
+        var yearlyChecked = document.getElementById("year").checked;
+        var monthlyChecked = document.getElementById("paid").checked;
+        
+        if (nameInput === "" || emailInput === "" ||!yearlyChecked && !monthlyChecked) {
+            // If any field is empty, display an alert
+            alert("Please fill out all the fields");
+        } else {
+            // If all fields are filled, navigate back in history
+            window.history.back();
+        }
+        });
+    });
+</script>
+</body>
+</html>

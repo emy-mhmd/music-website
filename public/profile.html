@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\public\css\profile.css">
+    <title>Profile Page</title>
+</head>
+<body>
+    <div class="music-logo">
+        <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+    </div>
+    <nav>
+        <ul>
+            <li><a href="login.html" class="link active"> Home</a></li>
+            <li><a href="subscription.html" class="link"> Subscribe</a></li>
+            <li><a href="about.html" class="link"> About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="profile-info">
+            <p><strong>Name:</strong> Sambo Nabil</p>
+            <p><strong>Email:</strong> yaboi@gmail.com</p>
+        </div>
+        <div class="profile-photo">
+            <img src="..\public\images\puck.png" alt="Profile Photo">
+            <div class="change-photo">
+                <input type="file" id="photoUpload" accept="image/*">
+                <label for="photoUpload">Change Photo</label>
+            </div>
+        </div>
+        <div class="password-change">
+            <h3>Change Password</h3>
+            <form class="password-form">
+                <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input id='password' type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input id='change-pass' type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <div class="btn-container">
+                    <button id='change' type="submit" class="btn">Change Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById("change").addEventListener("click", function(event) {
+        event.preventDefault();
+        var change_pass = $("#change-pass").val().trim();
+        var password = $("#password").val().trim();
+        
+        if (change_pass == "" || password == "") {
+            // If any field is empty, display an alert
+            alert("Please fill out all the fields");
+        }
+         else {
+        window.location.href = "login.html";
+         }
+    });
+
+    </script>
+    
+</body>
+</html>

@@ -111,6 +111,7 @@ input[type="text"],input[type="email"]{
     outline:none;
     border: 1px solid #333;
     margin: 12px 0;
+    color: white;
 }
 form button{
     background: #ff004f;
