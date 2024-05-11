@@ -7,20 +7,30 @@
     initial-scale=1.0">
     <title>artist page</title>
     <link rel="stylesheet" href="..\public\css\artist.css">
+    <script src="..\public\js\artist.js" defer></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>   
-<body>
+<body >
+    
     <div class="container">
+        <nav>
+            <ul>
+                <li><a href="login.html" class="link active"> Home</a></li>
+                <li><a href="subscription.html" class="link"> Subscribe</a></li>
+                <li><a href="about.html" class="link"> About</a></li>
+            </ul>
+        </nav>
         <div class="artist-image">
             <div class="music-logo">
                 <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
             </div>
             <div class="image-wrapper">
-                <img id="artist-image" src="..\public\images\billie_eilish.jpg" alt="artist image">
-                <h2>Billie Eilish</h2>  
+                <img id="artist-image" src="" alt="artist image">
+                <h2 id="artist-name"></h2>
             </div>
 
         </div>
+        
         <div class="artist">
             <!-- Links for toggling between songs and albums -->
             <div class="links">
@@ -30,7 +40,7 @@
             <!-- Songs List -->
             <div class="songs" id="songs">
                 <ul>
-                    <li class="song_item">
+                    <!-- <li class="song_item">
                         <span>01</span>
                         <img src="..\public\images\kororon.png" alt="kororon-eve">
                         <h5>Kororon
@@ -50,25 +60,25 @@
                         <h5>Fight Song
                             <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
                         </h5>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
             <!-- Albums List -->
         <div class="albums" id="albums" style="display: none;">
                 <ul>
-                    <li class="song_item">
+                    <!-- <li class="song_item">
                         <span>03</span>
                         <img src="..\public\images\fight_song.png" alt="Fight-song-eve">
                         <h5>Fight Song
                             <i class="bi playListPlay bi-play-circle-fill" id="3"></i>
                         </h5>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         // JavaScript functions to toggle between songs and albums
         var songsSection = document.getElementById("songs");
         var albumsSection = document.getElementById("albums");
@@ -76,12 +86,15 @@
         function showSongs() {
             songsSection.style.display = "block";
             albumsSection.style.display = "none";
+           
         }
 
         function showAlbums() {
             songsSection.style.display = "none";
             albumsSection.style.display = "block";
         }
-    </script>    
+    
+        
+    </script>     -->
 </body>
 </html>

@@ -15,11 +15,60 @@
     background-color: #191919;
 }
 
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 25px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    
+}
+
+nav ul li a:hover {
+    color: #36e2ec; /* Light blue on hover */
+}
+
+nav {
+    background-color: #121213;
+    padding: 10px 0;
+    text-align: center;
+   
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    background-color: #131313; /* Darker gray on hover */
+}
 .artist-image {
     display: flex;
     align-items: flex-start;
     background-color: black;
     padding: 10px;
+    margin-top: 20px;
 }
 
 .artist-image.image-wrapper {
@@ -29,15 +78,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    right: 50%;
-}
-
-.image-wrapper img {
-    max-width: 100%;
-    height: auto;
     position: relative;
-    left: 200%;
+    margin-bottom: 20px;
+    text-align: right;
+    
+}
+.image-wrapper {
+    margin-left: 25%; /* Move the image to the right */
+}
+.image-wrapper img {
+    max-width: 200px;
+    max-height: 200px;
     
 }
 .artist-image.music-logo img{
@@ -49,9 +100,10 @@
 .image-wrapper h2 {
     color: #fff;
     position: relative;
-    left: 320%;
+    left: 220px;
     top: -100px;
     justify-self:center;
+    margin-top: 10px;
    
 }
 
@@ -70,21 +122,21 @@
 }
 
 .links a {
-    color: #fff;
+    color: #41616f;
     text-decoration: none;
     margin-right: 10px; 
 }
-.links a:hover {
+/* .links a:hover {
     background: rgb(105, 105, 170, 0.1);
     cursor: pointer;
     transition: .3s ease;
-}
-.artist ul {
+} */
+/* .artist ul {
     padding: 0 10px;
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
+} */
 
 .artist li {
     position: relative;
@@ -95,17 +147,18 @@
     cursor: pointer;
     transition: .2s linear;
     color: #fff; 
+    
 }
 
-.artist li:hover {
+/* .artist li:hover {
     background: rgb(105, 105, 170, 0.1);
-}
+} */
 
-.artist li span {
+/* .artist li span {
     font-size: 20px;
     font-weight: 600;
     color: #4c5262;
-}
+} */
 
 .artist li img {
     width: 50px;
@@ -113,15 +166,15 @@
     margin-left: 10px;
 }
 
-.artist li h5 {
+/* .artist li h5 {
     font-size: 20px;
     margin-left: 10px;
-}
+} */
 
 
-.artist li .bi {
+/* .artist li .bi {
     position: absolute;
     right: 15px;
     top: 15px;
     font-size: 16px;
-}
+} */
