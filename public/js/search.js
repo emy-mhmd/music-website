@@ -54,7 +54,7 @@ function displayArtist(artist) {
     const artistInfo = document.getElementById('artist-info');
     artistInfo.innerHTML = `
         <div>
-        <a href="artist.html?id=${artist.id}">
+        <a href="/artist?id=${artist.id}">
         <img src="${artist.images[0].url}" alt="${artist.name}" width="200">
         </a>
         <h2>${artist.name}</h2>
@@ -125,6 +125,6 @@ async function fetchAndDisplaySongs(selectedItem, selectedType) {
    
         // Pass selected item and type to the result page
         const queryString = `type=${selectedType}&item=${encodeURIComponent(selectedItem)}`;
-        window.location.href = `result.html?${queryString}`;
+        window.location.href = `/result?${queryString}`;
     }
 

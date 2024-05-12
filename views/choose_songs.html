@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Music Website|data</title>
-    <link rel="stylesheet" href="..\public\css\choose_songs.css">
-    <script src="..\public\js\choose_songs.js"></script>
+    <link rel="stylesheet" href="/css/choose_songs.css">
+    <script src="/js/choose_songs.js"></script>
 </head>
 
 <body class="blue-background">
     <div class="music-logo">
-        <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+        <img src="/images/Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
     </div>
     <nav>
         <ul>
-            <li><a href="login.html" class="link active"> Home</a></li>
-            <li><a href="subscription.html" class="link"> Subscribe</a></li>
-            <li><a href="about.html" class="link"> About</a></li>
+            <li><a href="/playlist" class="link active"> Home</a></li>
+            <li><a href="/subscription" class="link"> Subscribe</a></li>
+            <li><a href="/about" class="link"> About</a></li>
         </ul>
     </nav>
     <p id="bodyhead">choose your type of music</p>
@@ -32,7 +32,7 @@
     <script>
         document.getElementById("start").addEventListener("click", function(event) {
         event.preventDefault();
-        window.location.href = "login.html";
+        window.location.href = "/login";
         
     });
 

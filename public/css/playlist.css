@@ -339,34 +339,38 @@ header .master_play .vol .dot::before{
 header .song_side{
     z-index: 2;
 }
-header .song_side nav{
-    width:90%;
+header .song_side nav {
+    width: 90%;
     height: 10%;
     margin: auto;
-    /*border:1px solid #ffffff;*/
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-header .song_side nav ul{
+
+header .song_side nav ul {
     display: flex;
 }
-header .song_side nav ul li{
+
+header .song_side nav ul li {
     position: relative;
     list-style-type: none;
     font-size: 20px;
-    color: #4c5262;
     margin-right: 25px;
     cursor: pointer;
     transition: .3s linear;
+    color: #ffffff; /* Set text color for all navigation links */
 }
-header .song_side nav ul li:hover{
-    color: #ffffff;
+
+header .song_side nav ul li:hover {
+    color: #ffffff; /* Set text color on hover */
 }
-header .song_side nav ul li:nth-child(1){
-    color: #ffffff;
+
+header .song_side nav ul li:nth-child(1) {
+    color: #ffffff; /* Set active link color */
 }
-header .song_side nav ul li span{
+
+header .song_side nav ul li span {
     position: absolute;
     width: 100%;
     height: 2.5px;
@@ -375,35 +379,40 @@ header .song_side nav ul li span{
     left: 0;
     border-radius: 20px;
 }
-header .song_side nav .search{
+
+header .song_side nav .search {
     position: relative;
     width: 10%;
     padding: 1px 10px;
     border-radius: 20px;
-    color: #6e737e;
+    color: #ffffff; /* Set search icon color */
 }
-header .song_side nav .search::before{
+
+header .song_side nav .search::before {
     content: '';
     position: absolute;
     width: 30%;
     height: 100%;
     border-radius: 20px;
-    background: rgb(105, 105, 170,.1);
+    background: rgb(105, 105, 170, .1);
     backdrop-filter: blur(5px);
     z-index: -1;
 }
-header .song_side nav .search .bi{
+
+header .song_side nav .search .bi {
     font-size: 13px;
     padding: 3px 2px 0px 5px;
 }
-header .song_side nav .user{
+
+header .song_side nav .user {
     position: relative;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
 }
-header .song_side nav .user img{
+
+header .song_side nav .user img {
     position: absolute;
     width: 50px;
     height: 50px;

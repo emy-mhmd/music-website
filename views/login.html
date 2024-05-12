@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0">
     <title>Music Website|Login and Registration</title>
-    <link rel="stylesheet" href="..\public\css\login.css">
+    <link rel="stylesheet" href="/css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="/js/java.js" defer></script>
 </head>   
 <body>
         
@@ -15,13 +16,13 @@
     <div class="wrapper">
         <nav class="music">
             <div class="music-logo">
-            <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+            <img src="/images/Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
             </div>
             <div class="music-menu" id="musicMenu">
                 <ul>
                     <li><a href="#" class="link active"> Home</a></li>
-                    <li><a href="subscription.html" class="link"> Subscribe</a></li>
-                    <li><a href="about.html" class="link"> About</a></li>
+                    <li><a href="/subscription" class="link"> Subscribe</a></li>
+                    <li><a href="/about" class="link"> About</a></li>
                 </ul>
             </div>
             
@@ -53,7 +54,7 @@
                 <label for="login-check"> Remember Me</label>
             </div>
             <div class="two">
-                <label><a href="profile.html">Forgot password?</a></label>
+                <label><a href="/profile">Forgot password?</a></label>
             </div>
         </div>
     </div>
@@ -120,7 +121,7 @@
             alert("Please fill out all the fields");
         }
          else {
-        window.location.href = "choose_songs.html";
+        window.location.href = "/choose_songs";
         }
     });
     document.getElementById("signin button").addEventListener("click", function(event) {
@@ -134,8 +135,9 @@
             alert("Please fill out all the fields");
         }
          else {
-        window.location.href = "playlist.html";
-         }
+            //window.location.href = "/playlist";
+            authorize();
+        }
     });
     
 </script>

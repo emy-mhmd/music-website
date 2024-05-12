@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\public\css\profile.css">
+    <link rel="stylesheet" href="/css/profile.css">
     <title>Profile Page</title>
 </head>
 <body>
     <div class="music-logo">
-        <img src="..\public\images\Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
+        <img src="/images/Screenshot 2024-03-26 035702.png" alt="Your Music Website Logo" width="200" height="100" >
     </div>
     <nav>
         <ul>
-            <li><a href="login.html" class="link active"> Home</a></li>
-            <li><a href="subscription.html" class="link"> Subscribe</a></li>
-            <li><a href="about.html" class="link"> About</a></li>
+            <li><a href="/playlist" class="link active"> Home</a></li>
+            <li><a href="/subscription" class="link"> Subscribe</a></li>
+            <li><a href="/about" class="link"> About</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -24,7 +24,7 @@
             <p><strong>Email:</strong> yaboi@gmail.com</p>
         </div>
         <div class="profile-photo">
-            <img src="..\public\images\puck.png" alt="Profile Photo">
+            <img src="/images/puck.png" alt="Profile Photo">
             <div class="change-photo">
                 <input type="file" id="photoUpload" accept="image/*">
                 <label for="photoUpload">Change Photo</label>
@@ -59,7 +59,7 @@
             alert("Please fill out all the fields");
         }
          else {
-        window.location.href = "login.html";
+        window.location.href = "/login";
          }
     });
 
