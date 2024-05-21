@@ -6,6 +6,7 @@
     <title>Music Website|data</title>
     <link rel="stylesheet" href="/css/choose_songs.css">
     <script src="/js/choose_songs.js"></script>
+    <script src="/js/java.js" defer></script>
 </head>
 
 <body class="blue-background">
@@ -30,9 +31,28 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        document.getElementById("start").addEventListener("click", function(event) {
-        event.preventDefault();
-        window.location.href = "/login";
+        document.getElementById("start").addEventListener("click", async function(event) {
+            event.preventDefault();
+            genreList = await load_genre();
+            artistList =await load_artist();
+            console.log("genre list from html"+genreList);
+            console.log("artist list from html"+artistList);
+            //alert("genreList from html"+genreList);
+            //alert("artistList from html"+artistList);
+            //alert("language-container from html"+localStorage.getItem("language-container"));
+            $.post('/update_preference',{
+                genre:genreList,
+                artist:artistList,
+                country:localStorage.getItem("language-container")
+                }).done(function(response){
+                    console.log('the preference is updated');
+                    //window.location.href = '/choose_songs';
+                }).fail(function(error){
+                    alert("error he" + error.responseText);
+                });
+
+
+            authorize();
         
     });
 

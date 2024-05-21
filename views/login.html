@@ -50,7 +50,7 @@
         </div>
         <div class="two-col">
             <div class="one">
-                <input id="checkbox" type="checkbox" id="login-check">
+                <input type="checkbox" id="login-check">
                 <label for="login-check"> Remember Me</label>
             </div>
             <div class="two">
@@ -120,8 +120,21 @@
             // If any field is empty, display an alert
             alert("Please fill out all the fields");
         }
-         else {
-        window.location.href = "/choose_songs";
+        else {
+            console.log("register");
+            $.post('/register',{
+            First_Name:firstn,
+            Last_Name:Lastn,
+            email:email,
+            password:password
+            }).done(function(response){
+                console.log('the response from the register'+response);
+                //window.location.href = '/choose_songs';
+            }).fail(function(error){
+                alert("error" + error.responseText);
+            });
+            window.location.href = '/choose_songs';
+            console.log("register finished");
         }
     });
     document.getElementById("signin button").addEventListener("click", function(event) {
@@ -136,7 +149,21 @@
         }
          else {
             //window.location.href = "/playlist";
+
+            $.post('/sign_in',{
+            email:email,
+            password:password
+            })
+            .done(function(response){
+                alert(response);
+                //window.location.href = '/ ';
+                authorize();
+            })
+            .fail(function(response){
+                alert("error" + response.responseText);
+            });
             authorize();
+            
         }
     });
     
