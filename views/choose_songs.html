@@ -35,21 +35,28 @@
             event.preventDefault();
             genreList = await load_genre();
             artistList =await load_artist();
-            console.log("genre list from html"+genreList);
-            console.log("artist list from html"+artistList);
+            //console.log("genre list from html"+genreList);
+            //console.log("artist list from html"+artistList);
             //alert("genreList from html"+genreList);
             //alert("artistList from html"+artistList);
             //alert("language-container from html"+localStorage.getItem("language-container"));
-            $.post('/update_preference',{
-                genre:genreList,
-                artist:artistList,
-                country:localStorage.getItem("language-container")
-                }).done(function(response){
-                    console.log('the preference is updated');
-                    //window.location.href = '/choose_songs';
-                }).fail(function(error){
-                    alert("error he" + error.responseText);
-                });
+            $.post('/update_preference', {
+                genre: genreList,
+                artist: artistList,
+                country: localStorage.getItem("language-container")
+            })
+            .then(function(response) {
+                console.log('The preference is updated');
+                console.log(response);
+                localStorage.setItem("user_genre", response.genre);
+                localStorage.setItem("user_artist", response.artist);
+                localStorage.setItem("user_country", response.country);
+                // Uncomment this line if you want to redirect after successful update
+                // window.location.href = '/choose_songs';
+            })
+            .fail(function(error) {
+                alert("Error: " + error.responseText);
+            });
 
 
             authorize();

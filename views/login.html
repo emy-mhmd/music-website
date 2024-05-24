@@ -127,8 +127,12 @@
             Last_Name:Lastn,
             email:email,
             password:password
-            }).done(function(response){
+            }).then(function(response){
                 console.log('the response from the register'+response);
+                localStorage.setItem("user_Fname", firstn);
+                localStorage.setItem("user_Lname", Lastn);
+                localStorage.setItem("user_email", email);
+                localStorage.setItem("user_password", password);
                 //window.location.href = '/choose_songs';
             }).fail(function(error){
                 alert("error" + error.responseText);
@@ -140,8 +144,8 @@
     document.getElementById("signin button").addEventListener("click", function(event) {
         event.preventDefault();
         
-        var email = $("#email").val().trim();
-        var password = $("#password").val().trim();
+        let email = $("#email").val().trim();
+        let password = $("#password").val().trim();
         
         if (email == "" || password == "") {
             // If any field is empty, display an alert
@@ -151,18 +155,26 @@
             //window.location.href = "/playlist";
 
             $.post('/sign_in',{
-            email:email,
-            password:password
+                email:email,
+                password:password
             })
-            .done(function(response){
-                alert(response);
+            .then(function(response){
+                //console.log("sign_in_alert "+response.email);
+                localStorage.setItem("user_Fname", response.First_Name);
+                localStorage.setItem("user_Lname", response.Last_Name);
+                localStorage.setItem("user_email", response.email);
+                localStorage.setItem("user_password", response.password);
+                localStorage.setItem("user_genre", response.genre);
+                localStorage.setItem("user_artist", response.artist);
+                localStorage.setItem("user_country", response.country);
                 //window.location.href = '/ ';
                 authorize();
             })
             .fail(function(response){
                 alert("error" + response.responseText);
+                console.log("error in sign in"+response);
             });
-            authorize();
+            console.log("after the post");
             
         }
     });

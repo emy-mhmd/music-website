@@ -157,6 +157,14 @@ function handleSongResponse() {
 }
 
 function menuSongListLoad(data){
+
+    console.log("fname:"+localStorage.getItem("user_Fname"));
+    console.log("lname:"+localStorage.getItem("user_Lname"));
+    console.log("mail:"+localStorage.getItem("user_email"));
+    console.log("pw:"+localStorage.getItem("user_password"));
+    console.log("genre:"+localStorage.getItem("user_genre"));
+    console.log("artist:"+localStorage.getItem("user_artist"));
+    console.log("country:"+localStorage.getItem("user_country"));
     //alert("item count "+ data.items.length);
     //removeMenuSongList();
     //alert("item count "+ data.items.length);

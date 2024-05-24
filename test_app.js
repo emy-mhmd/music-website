@@ -30,13 +30,28 @@ app.get('',(req,res)=>{
     res.sendFile(__dirname + "/views/login.html");
 });
 app.get('/playlist',(req,res)=>{
-    res.sendFile(__dirname + "/views/playlist.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/playlist.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/about',(req,res)=>{
-    res.sendFile(__dirname + "/views/about.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/about.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/artist',(req,res)=>{
-    res.sendFile(__dirname + "/views/artist.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/artist.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/choose_songs',(req,res)=>{
     res.sendFile(__dirname + "/views/choose_songs.html");
@@ -45,73 +60,115 @@ app.get('/login',(req,res)=>{
     res.sendFile(__dirname + "/views/login.html");
 });
 app.get('/playlist',(req,res)=>{
-    res.sendFile(__dirname + "/views/playlist.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/playlist.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/profile',(req,res)=>{
-    res.sendFile(__dirname + "/views/profile.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/profile.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/result',(req,res)=>{
-    res.sendFile(__dirname + "/views/result.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/result.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/search',(req,res)=>{
-    res.sendFile(__dirname + "/views/search.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/search.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 app.get('/subscription',(req,res)=>{
-    res.sendFile(__dirname + "/views/subscription.html");
+    if(user_mail){
+        res.sendFile(__dirname + "/views/subscription.html");
+    }
+    else{
+        res.redirect('/login');
+    }
 });
 
 
+app.use(express.urlencoded({ extended: true }));
+app.post('/register', async (req, res) => {
+    try {
+        let user = new User(req.body);
+        let result = await user.save();
+        //console.log("the result in the register:"+result);
+        res.status(200).send(result);
+        user_mail = req.body.email;
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server error");
+    }
+});
+
 app.use(express.urlencoded({extended: true}));
-app.post('/register',(req,res)=>{
-    //console.log(req.body);
-    let user = User(req.body);
-    user.save()
-        .then((result=>{
-            //res.redirect("/login");
-        }))
-        .catch((err)=>{
-            console.log(err);
-        })
-        user_mail =  req.body.email;
-})
-app.use(express.urlencoded({extended: true}));
-app.post('/sign_in',async (req,res)=>{
-    await User.findOne({email: req.body.email , password: req.body.password})
-    .then((result)=>{
-        //console.log("this is the result"+result);
-        if(result){
-            user_mail =  req.body.email;
-            //console.log("found the user");
-            //Auth.authorize();
+app.post('/sign_in', async (req, res) => {
+    try {
+        const result = await User.findOne({ email: req.body.email, password: req.body.password });
+        if (result) {
+            user_mail = req.body.email;
+            console.log("found the user");
+            //console.log(result.email);
+            res.status(200).send(result);
+        } else {
+            console.log("bruh result is null");
+            res.status(401).send("Invalid email or password");
         }
-        else{
-            console.log("bruh");
-        }
-    })
-    .catch((err)=>{
+    } catch (err) {
         console.log("wrong data");
-    })
+        res.status(500).send("Server error");
+    }
 });
 
 app.use(express.urlencoded({extended: true}));
-app.post('/update_preference', (req,res)=>{
-    console.log("genre "+req.body.genre);
-    console.log("genre "+req.body.artist);
-    console.log("country"+req.body.country);
-    User.updateOne(
-        { "email": user_mail },
-        { 
-          $set: { 
-            "genre": req.body.genre,
-            "artist": req.body.artist,
-            "country": req.body.country
-          } 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Ensure JSON request bodies are parsed
+
+app.post('/update_preference', async (req, res) => {
+    try {
+        // Debugging logs
+        console.log("Received data:", req.body);
+
+        // Perform the update
+        const result = await User.updateOne(
+            { email: user_mail },
+            {
+                $set: {
+                    genre: req.body.genre,
+                    artist: req.body.artist,
+                    country: req.body.country
+                }
+            }
+        );
+
+        if (result.modifiedCount > 0) {
+            const send_back = {
+                genre: req.body.genre,
+                artist: req.body.artist,
+                country: req.body.country
+            };
+            res.status(200).send(send_back);
+        } else {
+            res.status(400).send("No preferences were updated");
         }
-      ).then(result => {
-        //console.log("Document updated successfully:", result);
-      }).catch(error => {
+    } catch (error) {
         console.error("Error updating document:", error);
-      });
+        res.status(500).send("Server error");
+    }
 });
 
 app.use(express.urlencoded({extended: true}));
@@ -122,7 +179,7 @@ app.post('/search_artist',async(req,res)=>{
     await Artist.findOne({Name : req.body.Name},options)
         .then((result)=>{
             if(result){
-                console.log(result);
+                //console.log(result);
                 res.send(result)
             }
             else{
@@ -143,7 +200,7 @@ app.post('/search_genre',async(req,res)=>{
     await Genre.findOne({Name : req.body.Name},options)
         .then((result)=>{
             if(result){
-                console.log(result);
+                //console.log(result);
                 res.send(result)
             }
             else{
@@ -154,13 +211,4 @@ app.post('/search_genre',async(req,res)=>{
             console.log("genre search error"+err+" for name"+req.body.Name);
         });
 });
-
-
-
-
-
-
-
-
-
 
