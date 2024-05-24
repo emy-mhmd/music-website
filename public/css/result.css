@@ -82,397 +82,68 @@ section {
     opacity: 0.8; /* Reduce opacity on hover */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
-
-.master_play{
-    width:100%;
-    height:10%;
+.master_play {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background:#151414;
-
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
- .master_play{
-    display: flex;
-    align-items: center;
-    padding: 0px,20px;
-    padding-left: 20px;
-}
- .master_play .wave{
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items:flex-end ;
-    padding-bottom: 5px;
-    margin-right:10px ;
-}
- .master_play .wave .wave1{
-    width: 3px;
-    height: 15px;
-    margin-right: 3px;
-    border-radius: 10px 10px 0px 0px;
-    background: #36e2ec;
-    animation: unset;
-}
- .master_play .wave .wave1:nth-child(2){
-    height: 20px;
-    /*animation-delay: .3s;*/
-}
- .master_play .wave .wave1:nth-child(3){
-    height: 8px;
-    /*animation-delay: .4s;*/
-}
-
-/* for java script*/
- .master_play .active2 .wave1{
-    animation: wave 1s linear infinite;
-}
- .master_play .active2 .wave1:nth-child(2){
-    animation-delay: .3s;
-}
- .master_play .active2 .wave1:nth-child(3){
-    animation-delay: .4s;
-}
-
-@keyframes wave {
-    0%{
-        height: 15px;
-    }
-    50%{
-        height: 10px;
-    }
-    100%{
-        height: 15px;
-    }
-}
-
- .master_play img{
-    width: 35px;
-    height: 35px;
-}
- .master_play h5{
-    width: 130px;
-    font-size: 13px;
-    margin-left: 15px;
-    color:#ffffff;
-    line-height: 15px;
-}
- .master_play h5 .subtitle{
-    font-size: 14px;
-    color: #4c5262;
-}
- .master_play .icon{
-    font-size: 20px;
-    color: #ffffff;
-    margin: 0px 20px 0px 0px;
-}
- .master_play .icon .bi{
-    cursor: pointer;
-    outline: none;
-}
- .master_play .icon .bi:nth-child(2){
-    border: 1px solid rgb(105, 105, 170,.1);
-    border-radius: 50%;
-    padding: 1px,3px,0px,6px;
-    margin: 0px 5px;
-    transition: .3s linear;
-}
-
- .master_play span{
-    color: #ffffff;
-    width: 32px;
-    font-size: 11px;
-    font-weight: 400;
-}
- .master_play #currentStart{
-    margin: 0px 0px 0px 20px;
-}
-
- .master_play .bar{
-    position: relative;
-    width: 43%;
-    height: 2px;
-    background-color: rgb(105, 105, 170,.1);
-    margin: 0px 15px 0px 10px;
-}
- .master_play .bar .bar2{
-    position: absolute;
-    background: #36e2ec;
-    width: 20%;
-    height: 100%;
-    top: 0;
-}
- .master_play .bar .dot{
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #36e2ec;
-    border-radius: 50%;
-    left: 0%;
-    top:-1px;
-    transition: 1s linear;
-}
- .master_play .bar .dot::before{
-    content:'';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border:1px solid #36e2ec;
-    border-radius: 50%;
-    left: -3px;
-    top:-4px;
-    box-shadow: inset 0px 0px 3px #36e2ec;
-}
- .master_play .bar input{
-    position: absolute;
-    width: 100%;
-    top: -6px;
-    left: 0;
-    cursor: pointer;
-    z-index: 99999999;
-    transition: 3s linear;
-    opacity: 0;
-}
- .master_play .vol{
-    position: relative;
-    width: 100px;
-    height: 2px;
+.master_play img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
     margin-left: 50px;
-    background: rgb(105, 105, 170,.1);
 }
- .master_play .vol .bi{
-    position:absolute;
-    color: #ffffff;
-    font-size:25px ;
-    top: -12px;
-    left: -25px;
-}
- .master_play .vol input{
-    position: absolute;
-    width: 100%;
-    top: -10px;
-    left: 0;
-    cursor: pointer;
-    z-index: 99999999;
-    transition: 3s linear;
-    opacity: 0;
+.master_play h5 {
+    flex-grow: 1;
+    margin: 10px;
+    font-size: 16px;
+    color:white;
 }
 
- .master_play .vol .vol_bar{
-    position: absolute;
-    background: #36e2ec;
-    width: 20%;
-    height: 100%;
-    top: 0;
-}
- .master_play .vol .dot{
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #ffffff; .master_play{
+.master_play .icon {
     display: flex;
+    gap: 10px;
     align-items: center;
-    padding: 0px,20px;
-    padding-left: 20px;
+    color: white;
+    margin-right: 100px;
 }
- .master_play .wave{
-    width: 30px;
-    height: 30px;
+
+.master_play .bar, .master_play .vol {
+    flex-grow: 1;
+    margin: 0 10px;
+    color: white;
+}
+
+.master_play .bar input, .master_play .vol input {
+    width: 100%;
+    color: white;
+}
+
+.master_play .wave {
     display: flex;
-    align-items:flex-end ;
-    padding-bottom: 5px;
-    margin-right:10px ;
+    gap: 3px;
+    
 }
- .master_play .wave .wave1{
-    width: 3px;
-    height: 15px;
-    margin-right: 3px;
-    border-radius: 10px 10px 0px 0px;
-    background: #36e2ec;
-    animation: unset;
+.master_play span{
+    color: white;
 }
- .master_play .wave .wave1:nth-child(2){
+.master_play .wave1 {
+    width: 5px;
     height: 20px;
-    /*animation-delay: .3s;*/
-}
- .master_play .wave .wave1:nth-child(3){
-    height: 8px;
-    /*animation-delay: .4s;*/
+    background: gray;
+    animation: wave-animation 1s linear infinite;
+    
 }
 
-/* for java script*/
- .master_play .active2 .wave1{
-    animation: wave 1s linear infinite;
-}
- .master_play .active2 .wave1:nth-child(2){
-    animation-delay: .3s;
-}
- .master_play .active2 .wave1:nth-child(3){
-    animation-delay: .4s;
-}
-
-@keyframes wave {
-    0%{
-        height: 15px;
+@keyframes wave-animation {
+    0%, 100% {
+        height: 20px;
     }
-    50%{
-        height: 10px;
+    50% {
+        height: 30px;
     }
-    100%{
-        height: 15px;
-    }
-}
-
- .master_play img{
-    width: 35px;
-    height: 35px;
-}
- .master_play h5{
-    width: 130px;
-    font-size: 13px;
-    margin-left: 15px;
-    color:#ffffff;
-    line-height: 15px;
-}
- .master_play h5 .subtitle{
-    font-size: 14px;
-    color: #4c5262;
-}
- .master_play .icon{
-    font-size: 20px;
-    color: #ffffff;
-    margin: 0px 20px 0px 0px;
-}
- .master_play .icon .bi{
-    cursor: pointer;
-    outline: none;
-}
- .master_play .icon .bi:nth-child(2){
-    border: 1px solid rgb(105, 105, 170,.1);
-    border-radius: 50%;
-    padding: 1px,3px,0px,6px;
-    margin: 0px 5px;
-    transition: .3s linear;
-}
-
- .master_play span{
-    color: #ffffff;
-    width: 32px;
-    font-size: 11px;
-    font-weight: 400;
-}
- .master_play #currentStart{
-    margin: 0px 0px 0px 20px;
-}
-
- .master_play .bar{
-    position: relative;
-    width: 43%;
-    height: 2px;
-    background-color: rgb(105, 105, 170,.1);
-    margin: 0px 15px 0px 10px;
-}
- .master_play .bar .bar2{
-    position: absolute;
-    background: #36e2ec;
-    width: 20%;
-    height: 100%;
-    top: 0;
-}
- .master_play .bar .dot{
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #36e2ec;
-    border-radius: 50%;
-    left: 0%;
-    top:-1px;
-    transition: 1s linear;
-}
- .master_play .bar .dot::before{
-    content:'';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border:1px solid #36e2ec;
-    border-radius: 50%;
-    left: -3px;
-    top:-4px;
-    box-shadow: inset 0px 0px 3px #36e2ec;
-}
- .master_play .bar input{
-    position: absolute;
-    width: 100%;
-    top: -6px;
-    left: 0;
-    cursor: pointer;
-    z-index: 99999999;
-    transition: 3s linear;
-    opacity: 0;
-}
- .master_play .vol{
-    position: relative;
-    width: 100px;
-    height: 2px;
-    margin-left: 50px;
-    background: rgb(105, 105, 170,.1);
-}
- .master_play .vol .bi{
-    position:absolute;
-    color: #ffffff;
-    font-size:25px ;
-    top: -12px;
-    left: -25px;
-}
- .master_play .vol input{
-    position: absolute;
-    width: 100%;
-    top: -10px;
-    left: 0;
-    cursor: pointer;
-    z-index: 99999999;
-    transition: 3s linear;
-    opacity: 0;
-}
-
- .master_play .vol .vol_bar{
-    position: absolute;
-    background: #36e2ec;
-    width: 20%;
-    height: 100%;
-    top: 0;
-}
- .master_play .vol .dot{
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #ffffff;
-    border-radius: 50%;
-    left: 0%;
-    top:-1px;
-    transition: 1s linear;
-}
- .master_play .vol .dot::before{
-    content:'';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border:1px solid #36e2ec;
-    border-radius: 50%;
-    left: -3px;
-    top:-4px;
-    box-shadow: inset 0px 0px 3px #36e2ec;
-}
-    border-radius: 50%;
-    left: 0%;
-    top:-1px;
-    transition: 1s linear;
-}
-g.master_play .vol .dot::before{
-    content:'';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    border:1px solid #36e2ec;
-    border-radius: 50%;
-    left: -3px;
-    top:-4px;
-    box-shadow: inset 0px 0px 3px #36e2ec;
 }

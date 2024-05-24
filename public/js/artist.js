@@ -9,6 +9,8 @@ let topTracks = []; // Store the list of top tracks
 let isShuffleEnabled = false; // Track shuffle state
 let shuffleOrder = []; // Track the shuffle order
 let playPauseIcon = null; // Reference to the play/pause icon
+let albumsongs=[];
+flag="";
 
 function showSongs() {
     fetchTopTracks();
@@ -80,8 +82,15 @@ async function fetchTopTracks() {
         li.textContent = track.name;
         li.style.fontSize = '22px';
         li.style.paddingTop = '50px';
-        li.style.cursor = 'pointer';
-        li.addEventListener('click', () => playSong(track, index)); // Add click event
+        li.style.cursor= 'pointer';
+        li.classList.add('songs-item')
+        
+        li.addEventListener('click', () => {
+            flag="song";
+            playSong(track, index,flag); // Add click event
+        });
+            
+            
         if (track.album.images.length > 0) {
             const img = document.createElement('img');
             img.src = track.album.images[0].url;
@@ -107,6 +116,8 @@ async function fetchAlbums() {
 
     // Display albums
     const albumsList = document.getElementById('albums');
+    albumsList.innerHTML = '';
+
     data.items.forEach(album => {
         const li = document.createElement('li');
         li.textContent = album.name;
@@ -124,6 +135,7 @@ async function fetchAlbums() {
 
             // Fetch songs in the album
             const albumId = album.id;
+            
             const response = await fetch(`https://api.spotify.com/v1/albums/${albumId}/tracks`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -131,23 +143,30 @@ async function fetchAlbums() {
             });
 
             const songsData = await response.json();
-            songsData.items.forEach(song => {
+            topTracks=songsData.items;
+            if (album.images.length > 0) {
+                const albumImg = document.createElement('img');
+                albumImg.src = album.images[0].url;
+                albumImg.alt = album.name;
+                albumImg.style.width = '100px'; // Adjust image size as needed
+                songsList.appendChild(albumImg);
+            }
+            songsData.items.forEach((track, index) => {
                 const li = document.createElement('li');
-                li.textContent = song.name;
+                li.textContent = track.name;
                 li.style.fontSize = '22px';
                 li.style.paddingTop = '50px';
-                if (song.album && song.album.images && song.album.images.length > 0) {
-                    const img = document.createElement('img');
-                    img.src = song.album.images[0].url;
-                    img.alt = song.name;
-                    img.style.width = '50px';
-                    li.appendChild(img);
-                } else {
-                    console.log("No image found for song:", song.name);
-                }
-                li.addEventListener('click', () => playSong(song.uri, song.name, song.album.images[0].url)); // Add click event for songs
+                li.style.cursor= 'pointer';
+                li.classList.add('songs-item');
+            
+                li.addEventListener('click', () =>{
+                    flag="album";
+                    playSong(track, index,flag);
+                } ); // Modify this line
                 songsList.appendChild(li);
             });
+            
+            
 
             show_albums_Songs();
         });
@@ -188,11 +207,11 @@ async function loadSpotifySDK() {
     };
 }
 
-async function playSong(track, index) {
+async function playSong(track, index, flagg) {
     try {
         const previewUrl = track.preview_url;
         const name = track.name;
-        const imageUrl = track.album.images[0].url;
+        let imageUrl;
 
         if (!previewUrl) {
             console.error('Preview URL not available.');
@@ -212,7 +231,13 @@ async function playSong(track, index) {
         playPauseIcon = masterPlaySection.querySelector('.bi-play-fill, .bi-pause-fill');
 
         // Update the song details
-        imgElement.src = imageUrl;
+        if (flagg === "song") {
+            imageUrl = track.album.images[0].url;
+        }
+        else if (flagg === "album") {
+            imageUrl = track.images[0].url;
+        }
+        imgElement.src=imageUrl
         songNameElement.innerHTML = `${name}<br><div class="subtitle">Eve</div>`;
 
         // Append and play the new audio
@@ -291,20 +316,20 @@ function formatTime(seconds) {
 function skipToNext() {
     if (isShuffleEnabled) {
         currentSongIndex = (currentSongIndex + 1) % shuffleOrder.length;
-        playSong(topTracks[shuffleOrder[currentSongIndex]], shuffleOrder[currentSongIndex]);
+        playSong(topTracks[shuffleOrder[currentSongIndex]], shuffleOrder[currentSongIndex],flag);
     } else {
         currentSongIndex = (currentSongIndex + 1) % topTracks.length;
-        playSong(topTracks[currentSongIndex], currentSongIndex);
+        playSong(topTracks[currentSongIndex], currentSongIndex,flag);
     }
 }
 
 function skipToPrevious() {
     if (isShuffleEnabled) {
         currentSongIndex = (currentSongIndex - 1 + shuffleOrder.length) % shuffleOrder.length;
-        playSong(topTracks[shuffleOrder[currentSongIndex]], shuffleOrder[currentSongIndex]);
+        playSong(topTracks[shuffleOrder[currentSongIndex]], shuffleOrder[currentSongIndex],flag);
     } else {
         currentSongIndex = (currentSongIndex - 1 + topTracks.length) % topTracks.length;
-        playSong(topTracks[currentSongIndex], currentSongIndex);
+        playSong(topTracks[currentSongIndex], currentSongIndex,flag);
     }
 }
 
@@ -356,4 +381,34 @@ document.addEventListener("DOMContentLoaded", () => {
     if (shuffleButton) {
         shuffleButton.addEventListener('click', toggleShuffle);
     }
+});
+
+playPauseIcon.addEventListener('click', () => {
+    if (currentAudio.paused) {
+        currentAudio.play();
+        playPauseIcon.classList.remove('bi-play-fill');
+        playPauseIcon.classList.add('bi-pause-fill');
+        updateLocalStorage(topTracks[currentSongIndex], currentSongIndex, isShuffleEnabled ? "shuffle" : "normal", true);
+    } else {
+        currentAudio.pause();
+        playPauseIcon.classList.remove('bi-pause-fill');
+        playPauseIcon.classList.add('bi-play-fill');
+        updateLocalStorage(topTracks[currentSongIndex], currentSongIndex, isShuffleEnabled ? "shuffle" : "normal", false);
+    }
+});
+
+// Event listener for when a new song starts playing
+audioElement.addEventListener('playing', () => {
+    updateLocalStorage(topTracks[currentSongIndex], currentSongIndex, isShuffleEnabled ? "shuffle" : "normal", true);
+});
+
+// Event listener for when a song ends
+audioElement.addEventListener('ended', () => {
+    skipToNext();
+});
+
+
+// When the play window loads, resume playback if there's any stored song information
+window.addEventListener('DOMContentLoaded', () => {
+    resumePlayback();
 });

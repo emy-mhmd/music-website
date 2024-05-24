@@ -178,6 +178,12 @@ nav ul li a:hover {
     top: 15px;
     font-size: 16px;
 } */
+.songs-item{
+    transition: color 0.3s;
+}
+.song-item:hover{
+    color :rebeccapurple;
+}
 .master_play {
     display: flex;
     align-items: center;
@@ -191,39 +197,48 @@ nav ul li a:hover {
     height: 50px;
     object-fit: cover;
     border-radius: 4px;
-    margin-right: 10px;
+    margin-left: 50px;
 }
 .master_play h5 {
     flex-grow: 1;
-    margin: 0;
+    margin: 10px;
     font-size: 16px;
+    color:white;
 }
 
 .master_play .icon {
     display: flex;
     gap: 10px;
     align-items: center;
+    color: white;
+    margin-right: 100px;
 }
 
 .master_play .bar, .master_play .vol {
     flex-grow: 1;
     margin: 0 10px;
+    color: white;
 }
 
 .master_play .bar input, .master_play .vol input {
     width: 100%;
+    color: white;
 }
 
 .master_play .wave {
     display: flex;
     gap: 3px;
+    
 }
-
+.master_play span{
+    color: white;
+}
 .master_play .wave1 {
     width: 5px;
     height: 20px;
     background: gray;
     animation: wave-animation 1s linear infinite;
+    
 }
 
 @keyframes wave-animation {

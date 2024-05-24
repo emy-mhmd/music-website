@@ -1,3 +1,26 @@
+
+// Function to retrieve song information from localStorage
+function retrieveFromLocalStorage() {
+    const storedSong = JSON.parse(localStorage.getItem('currentSong'));
+    const storedIndex = parseInt(localStorage.getItem('currentSongIndex'));
+    const storedShuffle = localStorage.getItem('isShuffleEnabled') === "true";
+    return { storedSong, storedIndex, storedShuffle };
+}
+
+// Function to resume playback if there's stored song information
+function resumePlayback() {
+    const { storedSong, storedIndex, storedShuffle } = retrieveFromLocalStorage();
+    if (storedSong && storedIndex >= 0) {
+        playSong(storedSong, storedIndex, storedShuffle ? "shuffle" : "normal");
+    }
+}
+
+// When the new page loads, retrieve song information from localStorage and resume playback if necessary
+window.addEventListener('DOMContentLoaded', () => {
+    resumePlayback();
+});
+
+
 // Function to fetch access token
 async function fetchAccessToken() {
     const clientId = "f7307ada475e4b34ac69626209ee0d79"; // Your Spotify Client ID
