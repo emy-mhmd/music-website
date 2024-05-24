@@ -1,36 +1,10 @@
 
-// Function to retrieve song information from localStorage
-function retrieveFromLocalStorage() {
-    const storedSong = JSON.parse(localStorage.getItem('currentSong'));
-    const storedIndex = parseInt(localStorage.getItem('currentSongIndex'));
-    const storedShuffle = localStorage.getItem('isShuffleEnabled') === "true";
-    return { storedSong, storedIndex, storedShuffle };
+export function addClick2Song(song_list_item,data,i){
+    song_list_item.addEventListener('click', () => {
+
+        play.playSong(data, i); // Add click event
+    });
 }
-
-// Function to resume playback if there's stored song information
-function resumePlayback() {
-    const { storedSong, storedIndex, storedShuffle } = retrieveFromLocalStorage();
-    if (storedSong && storedIndex >= 0) {
-        playSong(storedSong, storedIndex, storedShuffle ? "shuffle" : "normal");
-    }
-}
-
-// When the new page loads, retrieve song information from localStorage and resume playback if necessary
-window.addEventListener('DOMContentLoaded', () => {
-    resumePlayback();
-});
-
-
-// Wait for the DOM content to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Add event listeners to the scroll buttons for popular songs
-    const leftScroll = document.getElementById("left_scroll");
-    const rightScroll = document.getElementById("right_scroll");
-    if (leftScroll && rightScroll) {
-        leftScroll.addEventListener("click", scrollPopularSongsLeft);
-        rightScroll.addEventListener("click", scrollPopularSongsRight);
-    }
-});
 
 // Function to scroll popular songs container to the left
 function scrollPopularSongsLeft() {
@@ -93,3 +67,4 @@ function scrollRecommendedSongsRight() {
         behavior: "smooth"
     });
 }
+
