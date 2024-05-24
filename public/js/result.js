@@ -1,4 +1,5 @@
 
+import * as play from './playsong.js';
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
@@ -9,6 +10,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (type && item) {
         fetchAndDisplayData(type, item);
     }
+    play.loadSpotifySDK();
+    play.bar();
+
+     // Add event listeners for next and previous buttons
+     document.querySelector('.bi-skip-start-fill').addEventListener('click', play.skipToPrevious);
+     document.querySelector('.bi-skip-end-fill').addEventListener('click', play.skipToNext);
+ 
+     // Add event listener for shuffle button if exists
+     const shuffleButton = document.querySelector('.bi-shuffle');
+     if (shuffleButton) {
+         shuffleButton.addEventListener('click', play.toggleShuffle);
+     }
 });
 async function fetchAccessToken() {
     const clientId = "f7307ada475e4b34ac69626209ee0d79"; // Your Spotify Client ID
@@ -64,9 +77,24 @@ function displayData(data) {
 
         // Append the track div to the track list
         trackList.appendChild(trackDiv);
+        // Add click event listener to play the track when clicked
+        trackDiv.addEventListener('click', () => {
+            play.playSong(track, 0); // Play the selected track
+        });
+
+        // Append the track div to the track list
+        trackList.appendChild(trackDiv);
     });
+
     trackList.style.display = 'grid';
     trackList.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))'; // Adjust as needed
     trackList.style.gap = '20px'; 
 }
+
+
+
+
+
+
+
 

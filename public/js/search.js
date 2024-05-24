@@ -1,20 +1,8 @@
 
-// Function to retrieve song information from localStorage
-function retrieveFromLocalStorage() {
-    const storedSong = JSON.parse(localStorage.getItem('currentSong'));
-    const storedIndex = parseInt(localStorage.getItem('currentSongIndex'));
-    const storedShuffle = localStorage.getItem('isShuffleEnabled') === "true";
-    return { storedSong, storedIndex, storedShuffle };
-}
 
-// Function to resume playback if there's stored song information
-function resumePlayback() {
-    const { storedSong, storedIndex, storedShuffle } = retrieveFromLocalStorage();
-    if (storedSong && storedIndex >= 0) {
-        playSong(storedSong, storedIndex, storedShuffle ? "shuffle" : "normal");
-    }
-}
-
+window.addEventListener('DOMContentLoaded', () => {
+    resumePlayback();
+});
 // When the new page loads, retrieve song information from localStorage and resume playback if necessary
 window.addEventListener('DOMContentLoaded', () => {
     resumePlayback();
@@ -149,5 +137,22 @@ async function fetchAndDisplaySongs(selectedItem, selectedType) {
         // Pass selected item and type to the result page
         const queryString = `type=${selectedType}&item=${encodeURIComponent(selectedItem)}`;
         window.location.href = `/result?${queryString}`;
+        // Store player state in local storage before redirecting
+        storePlayerState();
     }
 
+// Function to store player state in local storage
+function storePlayerState() {
+    const playerState = {
+        audioElement: currentAudio,
+        currentSongIndex: currentSongIndex,
+        timestamp: currentAudio.currentTime,
+        paused: currentAudio.paused
+    };
+    localStorage.setItem('playerState', JSON.stringify(playerState));
+}
+
+// When the new page loads, retrieve song information from localStorage and resume playback if necessary
+window.addEventListener('DOMContentLoaded', () => {
+    resumePlayback();
+});
