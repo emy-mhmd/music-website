@@ -188,6 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add event listeners for next and previous buttons
     document.querySelector('.bi-skip-start-fill').addEventListener('click', play.skipToPrevious);
     document.querySelector('.bi-skip-end-fill').addEventListener('click', play.skipToNext);
+    // Add event listeners for toggling between songs and albums
+    document.querySelector('a[href="#songs"]').addEventListener('click', showSongs);
+    document.querySelector('a[href="#albums"]').addEventListener('click', showAlbums)
 
     // Add event listener for shuffle button if exists
     const shuffleButton = document.querySelector('.bi-shuffle');
@@ -195,4 +198,5 @@ document.addEventListener("DOMContentLoaded", () => {
         shuffleButton.addEventListener('click', play.toggleShuffle);
     }
 });
-
+window.showSongs = showSongs;
+window.showAlbums = showAlbums;

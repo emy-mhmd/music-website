@@ -288,8 +288,8 @@ function recommendationListLoad(data){
 
         song_list_item.appendChild(song_img_div);
         song_list_item.appendChild(song_info_h5);
-        topTracks = data.tracks
-        let TRACK = data.tracks[i]
+        topTracks = data.tracks;
+        let TRACK = data.tracks[i];
         song_list_item.addEventListener('click', () => {
 
             playSong(TRACK, i); // Add click event
